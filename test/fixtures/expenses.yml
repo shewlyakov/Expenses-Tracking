@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  category_id: 1
+  name: MyString
+  sum: 1.5
+  description: MyString
+
+two:
+  user_id: 1
+  category_id: 1
+  name: MyString
+  sum: 1.5
+  description: MyString
