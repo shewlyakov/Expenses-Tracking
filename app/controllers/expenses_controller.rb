@@ -1,7 +1,7 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-
+  before_action :correct_user
 
   def index
     @expenses = Expense.all
@@ -11,14 +11,14 @@ class ExpensesController < ApplicationController
   end
 
   def new
-    @expense = Expense.new
+    @expense = current_user.expenses.build
   end
 
   def edit
   end
 
   def create
-    @expense = Expense.new(expense_params)
+    @expense = current_user.expenses.build(expense_params)
 
     respond_to do |format|
       if @expense.save
@@ -50,6 +50,10 @@ class ExpensesController < ApplicationController
       format.html { redirect_to expenses_url, notice: "Expense was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def correct_user
+    @expense = current_user.expenses.find_by(id: params[:id])
   end
 
   private

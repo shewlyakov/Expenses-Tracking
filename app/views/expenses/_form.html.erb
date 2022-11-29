@@ -12,11 +12,6 @@
   <% end %>
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.number_field :user_id %>
-  </div>
-
-  <div>
     <%= form.label :category_id, style: "display: block" %>
     <%= form.number_field :category_id %>
   </div>
@@ -34,6 +29,11 @@
   <div>
     <%= form.label :description, style: "display: block" %>
     <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.number_field :user_id, id: :expense_user_id,
+                          value: current_user.id, type: :hidden %>
   </div>
 
   <div>
