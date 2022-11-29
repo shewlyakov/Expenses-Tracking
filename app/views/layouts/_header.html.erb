@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+    <span>Привіт, <%= current_user.email %></span>
+    <%= link_to 'Вийти', destroy_user_session_path, :method => :delete %>
+<% else %>
+    <%= link_to 'Ввійти', new_user_session_path %> або <%= link_to 'Зареєструватися', new_user_registration_path %>
+<% end %>
