@@ -12,8 +12,9 @@
   <% end %>
 
   <div>
-    <%= form.label :category_id, style: "display: block" %>
-    <%= form.number_field :category_id %>
+    <%= form.label :category_id, "Виберіть категорію", style: "display: block"  %>
+    <%= form.select :category_id, [["Подорожі", 1], ["Одяг", 2], ["Таксі", 3],
+                                  ["Кафе", 4], ["Магазини", 5], ["Інше", 6]] %>
   </div>
 
   <div>
