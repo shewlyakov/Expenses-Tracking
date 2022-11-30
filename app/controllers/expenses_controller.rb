@@ -4,7 +4,8 @@ class ExpensesController < ApplicationController
   before_action :correct_user
 
   def index
-    @expenses = Expense.all
+    @expense = current_user.expenses
+    @total_sum = @expense.sum(:sum)
   end
 
   def show
