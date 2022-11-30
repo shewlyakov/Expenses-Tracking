@@ -6,6 +6,8 @@ class ExpensesController < ApplicationController
   def index
     @expense = current_user.expenses
     @total_sum = @expense.sum(:sum)
+    @q = @expense.ransack(params[:q])
+    @expenses = @q.result(distinct: true)
   end
 
   def show
