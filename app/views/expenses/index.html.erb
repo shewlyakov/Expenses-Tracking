@@ -1,16 +1,23 @@
 <p style="color: green"><%= notice %></p>
 <div id="expenses">
+
   <p>Загальна сума: <%= @total_sum %></p>
+
   <%= search_form_for @q do |f| %>
     <%= f.search_field :name_cont %>
     <%= f.submit %>
   <% end %>
+
   <%= search_form_for @q do |f| %>
     <%= f.input :category_id_eq, required: false, label: 'Сортувати за категоріями',
                 collection: [['Подорожі', 1], ['Одяг', 2], ['Таксі', 3],
                               ['Кафе', 4], ['Магазин', 5], ['Інше', 6]] %>
     <%= f.submit %>
   <% end %>
+
+  <%= sort_link(@q, :sum, 'За сумою') %>
+  <%= sort_link(@q, :updated_at, 'Останні додані', default_order: :desc) %>
+
   <% @expenses.each do |expense| %>
     <%= render expense %>
     <p><%= link_to "Show this expense", expense %></p>
