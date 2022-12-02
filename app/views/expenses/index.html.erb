@@ -2,6 +2,7 @@
 <div id="expenses">
 
   <p>Загальна сума: <%= @total_sum %></p>
+  <%= link_to "Діалоги", room_path(1) %>
 
   <%= search_form_for @q do |f| %>
     <%= f.search_field :name_cont %>
@@ -15,7 +16,7 @@
     <%= f.submit %>
   <% end %>
 
-  <%= sort_link(@q, :sum, 'За сумою') %>
+  <%= sort_link(@q, :sum, 'За сумою', default_order: :desc) %>
   <%= sort_link(@q, :updated_at, 'Останні додані', default_order: :desc) %>
 
   <% @expenses.each do |expense| %>

@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-2">
+    <%= link_to "Назад до витрат", root_path %>
+    <%= turbo_stream_from "rooms" %>
+    <div id="rooms">
+      <h4> <%= render @rooms %> </h4>
+    </div>
+    <h4> Користувачі </h4>
+    <div>
+      <%= turbo_stream_from "users" %>
+      <div id="users">
+        <%= render @users %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-10 bg-dark text-light">
+    <% if @single_room %>
+      <h4 class="text-center"> <%= @single_room.name %> </h4>
+      <%= turbo_stream_from @single_room %>
+      <div id="messages">
+        <%= render @messages %>
+        <div class="form-group msg-form">
+          <%= form_with(model: [@single_room, @message], remote: true, class: "d-flex") do |f| %>
+            <%= f.text_field :content, id: 'chat-text', class: "form-control msg-content", autocomplete: 'off' %>
+            <%= f.submit data: { disable_with: false }, class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
