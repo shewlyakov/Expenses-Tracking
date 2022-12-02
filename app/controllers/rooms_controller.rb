@@ -23,4 +23,3 @@ class RoomsController < ApplicationController
     render "index"
   end
 end
-#form_with(model: @message, remote: true, class: "d-flex") do |f|
