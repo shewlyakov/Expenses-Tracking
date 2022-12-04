@@ -2,8 +2,7 @@
 <div id="expenses">
 
   <p>Загальна сума: <%= @total_sum %></p>
-  <%= link_to "Діалоги", room_path(1) %>
-
+  
   <%= search_form_for @q do |f| %>
     <%= f.search_field :name_cont %>
     <%= f.submit %>
@@ -24,4 +23,3 @@
     <p><%= link_to "Show this expense", expense %></p>
   <% end %>
 </div>
-<%= link_to "New expense", new_expense_path %>

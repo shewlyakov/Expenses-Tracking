@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @user = User.find(params[:id])
     @current_user = current_user
@@ -14,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   private
-  
+
   def get_name(user1, user2)
     users = [user1, user2].sort
     "private_#{users[0].id}_#{users[1].id}"

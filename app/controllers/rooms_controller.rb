@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @current_user = current_user
     redirect_to new_user_session_path unless @current_user
