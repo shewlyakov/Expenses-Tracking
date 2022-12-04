@@ -11,6 +11,7 @@
         <a class="nav-link"><%= link_to "Поділитися", room_path(1) %></a>
         <% if user_signed_in? %>
           <a class="nav-link"><%= link_to 'Вийти', destroy_user_session_path, :method => :delete %></a>
+          <a class="nav-link"><%= link_to 'Редагувати профіль', edit_user_registration_path %></a>
         <% else %>
           <a class="nav-link">
             <%= link_to 'Ввійти', new_user_session_path %>&nbsp&nbsp&nbsp
