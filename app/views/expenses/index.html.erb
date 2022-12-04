@@ -1,8 +1,5 @@
-<p style="color: green"><%= notice %></p>
-<div id="expenses">
+<p>Загальна сума: <%= @total_sum %></p>
 
-  <p>Загальна сума: <%= @total_sum %></p>
-  
   <%= search_form_for @q do |f| %>
     <%= f.search_field :name_cont %>
     <%= f.submit %>
@@ -18,8 +15,28 @@
   <%= sort_link(@q, :sum, 'За сумою', default_order: :desc) %>
   <%= sort_link(@q, :updated_at, 'Останні додані', default_order: :desc) %>
 
-  <% @expenses.each do |expense| %>
-    <%= render expense %>
-    <p><%= link_to "Show this expense", expense %></p>
-  <% end %>
-</div>
+
+
+
+<table class="table table-stripped table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Назва</th>
+      <th>Сума</th>
+      <th>Категорія</th>
+      <th>Опис</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @expenses.each do |expense| %>
+      <tr>
+        <th><%= expense.name %></th>
+        <th><%= expense.sum %></th>
+        <th><%= expense.category.title %></th>
+        <th><%= expense.description %></th>
+        <th><%= link_to "Показати", expense, class:"btn btn-outline-info" %></th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

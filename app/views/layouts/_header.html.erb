@@ -1,21 +1,21 @@
-<nav class="navbar navbar-expand-lg bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" <%= link_to "ExpensesTracking", root_path %> </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" aria-current="page"><%= link_to "Додому", root_path %></a>
-        <a class="nav-link"><%= link_to "Додати витрату", new_expense_path %></a>
-        <a class="nav-link"><%= link_to "Поділитися", room_path(1) %></a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar-nav mr-auto">
+        <a class="nav-link"><%= link_to "Додому", root_path, class:"nav-link" %></a>
+        <a class="nav-link"><%= link_to "Додати витрату", new_expense_path, class:"nav-link" %></a>
+        <a class="nav-link"><%= link_to "Поділитися", room_path(1), class:"nav-link" %></a>
         <% if user_signed_in? %>
-          <a class="nav-link"><%= link_to 'Вийти', destroy_user_session_path, :method => :delete %></a>
-          <a class="nav-link"><%= link_to 'Редагувати профіль', edit_user_registration_path %></a>
+          <a class="nav-link"><%= link_to 'Редагувати профіль', edit_user_registration_path, class:"nav-link" %></a>
+          <a class="nav-link"><%= link_to 'Вийти', destroy_user_session_path, :method => :delete, class:"nav-link" %></a>
         <% else %>
           <a class="nav-link">
-            <%= link_to 'Ввійти', new_user_session_path %>&nbsp&nbsp&nbsp
-            <%= link_to 'Зареєструватися', new_user_registration_path %>
+            <%= link_to 'Ввійти', new_user_session_path, class:"nav-link" %>&nbsp&nbsp&nbsp
+            <%= link_to 'Зареєструватися', new_user_registration_path, class:"nav-link" %>
           </a>
         <% end %>
       </div>

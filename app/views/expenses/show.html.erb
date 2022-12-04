@@ -1,10 +1,7 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @expense %>
-
-<div>
-  <%= link_to "Edit this expense", edit_expense_path(@expense) %> |
-  <%= link_to "Back to expenses", expenses_path %>
-
-  <%= button_to "Destroy this expense", @expense, method: :delete %>
-</div>
+<br>
+<div><%= link_to "Редагувати", edit_expense_path(@expense), class:"btn btn-secondary" %></div>
+<br>
+<div><%= button_to "Видалити", @expense, method: :delete, class: "btn btn-outline-danger" %></div>
+<br>
+<div><%= link_to "На головну", expenses_path %></div>
