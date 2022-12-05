@@ -17,6 +17,7 @@ gem "devise"
 gem "ransack"
 gem "simple_form"
 gem "redis", "~> 4.0"
+gem "jquery-rails"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
