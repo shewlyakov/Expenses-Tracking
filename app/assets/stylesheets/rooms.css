@@ -4,8 +4,8 @@
   width: 90%
 }
 
-.col-md-10 {
-  height: 100vh;
+.col-md-9 {
+  height: 70vh;
   overflow: scroll;
 }
 
