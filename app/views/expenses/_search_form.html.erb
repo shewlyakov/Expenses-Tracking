@@ -1,0 +1,21 @@
+<%= search_form_for @q, html: {class: "form-horizontal"} do |f| %>
+  <%= f.search_field :name_cont, placeholder:"Введіть пошуковий запит...", class:"form-control" %>
+  <br>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <%= sort_link(@q, :sum, 'За сумою', default_order: :desc) %>
+      </div>
+      <div class="col">
+        <%= f.input :category_id_eq, required: false, label: 'Категорія:', class:"form-control",
+                    collection: [['Подорожі', 1], ['Одяг', 2], ['Таксі', 3],
+                                  ['Кафе', 4], ['Магазин', 5], ['Інше', 6]] %>
+      </div>
+      <div class="col">
+        <%= sort_link(@q, :updated_at, 'Останні додані', default_order: :desc) %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <center><%= f.submit "Пошук", class:"btn btn-secondary" %></center>
+<% end %>

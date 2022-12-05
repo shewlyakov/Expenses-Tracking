@@ -1,42 +1,30 @@
-<p>Загальна сума: <%= @total_sum %></p>
-
-  <%= search_form_for @q do |f| %>
-    <%= f.search_field :name_cont %>
-    <%= f.submit %>
-  <% end %>
-
-  <%= search_form_for @q do |f| %>
-    <%= f.input :category_id_eq, required: false, label: 'Сортувати за категоріями',
-                collection: [['Подорожі', 1], ['Одяг', 2], ['Таксі', 3],
-                              ['Кафе', 4], ['Магазин', 5], ['Інше', 6]] %>
-    <%= f.submit %>
-  <% end %>
-
-  <%= sort_link(@q, :sum, 'За сумою', default_order: :desc) %>
-  <%= sort_link(@q, :updated_at, 'Останні додані', default_order: :desc) %>
-
-
-
-
-<table class="table table-stripped table-bordered table-hover">
-  <thead class="thead-dark">
-    <tr>
-      <th>Назва</th>
-      <th>Сума</th>
-      <th>Категорія</th>
-      <th>Опис</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @expenses.each do |expense| %>
-      <tr>
-        <th><%= expense.name %></th>
-        <th><%= expense.sum %></th>
-        <th><%= expense.category.title %></th>
-        <th><%= expense.description %></th>
-        <th><%= link_to "Показати", expense, class:"btn btn-outline-info" %></th>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="card">
+  <div class="card-header">
+    <h4>Загальна сума витрат: <%= @total_sum %></h4>
+    <%= render :partial => 'expenses/search_form' %>
+  </div>
+  <div class="card-body">
+    <table class="table table-stripped table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Назва</th>
+          <th>Сума</th>
+          <th>Категорія</th>
+          <th>Опис</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @expenses.each do |expense| %>
+          <tr>
+            <th><%= expense.name %></th>
+            <th><%= expense.sum %></th>
+            <th><%= expense.category.title %></th>
+            <th><%= expense.description %></th>
+            <th><%= link_to "Показати", expense, class:"btn btn-outline-info" %></th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
