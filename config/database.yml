@@ -14,6 +14,3 @@ test:
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
-  database: ExpensesTracking_production
-  username: ExpensesTracking
-  password: <%= ENV["EXPENSESTRACKING_DATABASE_PASSWORD"] %>
