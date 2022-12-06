@@ -1,8 +1,12 @@
 class Message < ApplicationRecord
   belongs_to :user
   belongs_to :room
-  before_create :confirm_participant
 
+  validates :user_id, presence: true
+  validates :room_id, presence: true
+  validates :content, presence: true
+
+  before_create :confirm_participant
   after_create_commit { broadcast_append_to self.room }
 
   def confirm_participant

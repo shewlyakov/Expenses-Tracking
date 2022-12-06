@@ -4,7 +4,7 @@ Turbo and ActionCable for user communication, Rspec for testing. Deployed on Ren
 
 ## Built With
 >Ruby v3.0.3
->Ruby on Rails v7.0.4
+Ruby on Rails v7.0.4
 
 ## Live Demo
 >Visit live demo [website](expenses-tracking.onrender.com)
