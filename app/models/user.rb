@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :messages
 
   validates_uniqueness_of :email
+  validates :email, presence: true
 
   scope :all_except, ->(user) { where.not(id: user) }
 
